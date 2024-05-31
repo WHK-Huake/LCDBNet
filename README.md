@@ -16,12 +16,14 @@ Our pretrained model is coming soon.
 
 ## Train
 Download LOL dataset from (https://daooshee.github.io/BMVC2018website/) and change the dataset path in 'training.yaml'.
+
 '''
 python train_denoise.py
 '''
 
 
 ## Test
+
 '''
 python test.py
 '''
