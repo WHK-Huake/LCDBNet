@@ -4,14 +4,17 @@ Division Gets Better: Learning Brightness-Aware and Detail-Sensitive Representat
 
 Our paper has been accepted by KBS. 
 
-Our pretrained model is coming soon.
-
 ## Environment
 * Python
 * Pytorch
 * numpy
 * tqdm
 * pandas
+
+## Trained models
+You can download our trained models from [BaiduPan [code:dlau]](https://pan.baidu.com/share/init?surl=t7vNrOhC3syIWhRrl4r9Qg). 
+
+Place `checkpoints` in 'LCDBNet/'
 
 
 ## Train
