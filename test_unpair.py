@@ -15,7 +15,7 @@ from models.LCDBNet import LCDBNet
 parser = argparse.ArgumentParser(description='Image Deraining using SwinIR')
 parser.add_argument('--input_dir', default=r'G:\low-light_image_enhancement\Our\dataset\test_datasets', type=str, help='Directory of validation images')
 parser.add_argument('--result_dir', default='results/LCDBNet', type=str, help='Directory for results')
-parser.add_argument('--weights', default='checkpoints/unpair/models/model_bestSSIM.pth', type=str,
+parser.add_argument('--weights', default='checkpoints/unpair.pth', type=str,
                     help='Path to weights')
 parser.add_argument('--gpus', default='0', type=str, help='CUDA_VISIBLE_DEVICES')
 
