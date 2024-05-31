@@ -23,7 +23,15 @@ python train_denoise.py
 
 
 ## Test
+test LOL dataset
 
 ```
 python test.py
 ```
+
+or unpair dataset
+
+```
+python test_unpair.py
+```
+
