@@ -4,7 +4,7 @@ Division Gets Better: Learning Brightness-Aware and Detail-Sensitive Representat
 
 Our paper has been accepted by KBS. 
 
-Our code is coming soon.
+Our pretrained model is coming soon.
 
 ## Environment
 * Python
@@ -15,5 +15,13 @@ Our code is coming soon.
 
 
 ## Train
-Download LOL dataset from (https://daooshee.github.io/BMVC2018website/) and Change the dataset path in 'training.yaml'.
+Download LOL dataset from (https://daooshee.github.io/BMVC2018website/) and change the dataset path in 'training.yaml'.
+'''
+python train_denoise.py
+'''
 
+
+## Test
+'''
+python test.py
+'''
