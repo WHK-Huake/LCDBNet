@@ -23,7 +23,7 @@ python train_denoise.py
 
 
 ## Test
-test LOL dataset. Change the testdataset path and then run
+test LOL dataset. Change the testdataset path of `test.py` and then run
 
 ```
 python test.py
