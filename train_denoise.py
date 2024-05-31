@@ -9,12 +9,7 @@ from skimage import img_as_ubyte
 
 import losses
 from dataset.data import get_training_data, get_test_data
-# from models.scunet_denoise import SCUNet_Denoise
-# from models_v1.illum_ycrcb_denoise_in import Illum_YCRCB_Denoise_IN
-# from models_v1.illum_ycrcb_denoise_in_cab1 import Illum_YCRCB_Denoise_IN_CAB1
-from models.scunet_denoise_down2 import SCUNet_Denoise_Down2
-from models.scunet_denoise_down2_casa import SCUNet_Denoise_Down2_CASA
-from models.scunet_denoise_down2_casa_sm import SCUNet_Denoise_Down2_CASA_SM
+from models.LCDBNet import LCDBNet
 
 from utils import network_parameters
 import torch.optim as optim
@@ -32,8 +27,6 @@ import pandas as pd
 from datetime import datetime
 from skimage.metrics import structural_similarity as ssim
 
-import pdb
-
 
 # Set Seeds
 torch.backends.cudnn.benchmark = True
@@ -49,8 +42,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 # Model
 print('==> Build the model')
 
-# model_restored = SCUNet_Denoise()
-model_restored = SCUNet_Denoise_Down2_CASA_SM()
+model_restored = LCDBNet()
 
 
 p_number = network_parameters(model_restored)
@@ -76,9 +68,8 @@ val_dir = Train['VAL_DIR']
 log_dir = os.path.join(Train['SAVE_DIR'], mode, 'log')
 utils.mkdir(log_dir)
 train_log = os.path.join(log_dir, 'train.csv')
-# 创建train_acc.csv和var_acc.csv文件，记录loss和accuracy
-df = pd.DataFrame(columns=['epoch', 'train Loss', 'val PSNR', 'val SSIM'])  # 列名
-df.to_csv(train_log, mode='a', index=False)  # 路径可以根据需要更改
+df = pd.DataFrame(columns=['epoch', 'train Loss', 'val PSNR', 'val SSIM'])  
+df.to_csv(train_log, mode='a', index=False)  
 
 # Optimizer
 start_epoch = 1
@@ -224,11 +215,9 @@ for epoch in range(start_epoch, OPT['EPOCHS'] + 1):
         print("[epoch %d SSIM: %.4f --- best_epoch %d Best_SSIM %.4f]" % (
             epoch, ssim_val_rgb, best_epoch_ssim, best_ssim))
 
-        # 将数据保存在一维列表
         list = [epoch, epoch_loss, psnr_val_rgb, ssim_val_rgb]
-        # 由于DataFrame是Pandas库中的一种数据结构，它类似excel，是一种二维表，所以需要将list以二维列表的形式转化为DataFrame
         data = pd.DataFrame([list])
-        data.to_csv(train_log, mode='a', header=False, index=False) # mode设为a,就可以向csv文件追加数据了
+        data.to_csv(train_log, mode='a', header=False, index=False) 
     scheduler.step()
 
     print("------------------------------------------------------------------")
