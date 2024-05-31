@@ -23,13 +23,13 @@ python train_denoise.py
 
 
 ## Test
-test LOL dataset. Change the testdataset path and then
+test LOL dataset. Change the testdataset path and then run
 
 ```
 python test.py
 ```
 
-or unpair dataset
+or unpair dataset run
 
 ```
 python test_unpair.py
