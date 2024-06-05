@@ -50,7 +50,7 @@ If you find the code helpful in your research or work, please cite the following
                   Kaibing Zhang},
   title        = {Division gets better: Learning brightness-aware and detail-sensitive representations for low-light image enhancement},
   journal      = {Knowledge-Based Systems},
-  volume       = {},
+  volume       = {299},
   pages        = {111958},
   year         = {2024}
 }
