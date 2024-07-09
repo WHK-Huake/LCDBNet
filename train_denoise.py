@@ -148,7 +148,7 @@ for epoch in range(start_epoch, OPT['EPOCHS'] + 1):
         input_ = data[1].cuda()
         optimizer.zero_grad()
 
-        target_y, target_uv = target[:, 2, :, :].unsqueeze(1), target[:, 0:2, :, :]
+        target_y, target_uv = target[:, 0, :, :].unsqueeze(1), target[:, 1:3, :, :]
         restored_y, restored_uv, restored = model_restored(input_)
         # pdb.set_trace()
 
