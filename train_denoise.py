@@ -177,10 +177,10 @@ for epoch in range(start_epoch, OPT['EPOCHS'] + 1):
                 restored_y, restored_uv, restored = model_restored(input_)
 
             restored = restored.permute(0, 2, 3, 1).cpu().detach().numpy().squeeze(0)
-            # restored = cv2.cvtColor(restored, cv2.COLOR_YCrCb2BGR)
+            restored = cv2.cvtColor(restored, cv2.COLOR_YCrCb2BGR)
 
             target = target.permute(0, 2, 3, 1).cpu().detach().numpy().squeeze(0)
-            # target = cv2.cvtColor(target, cv2.COLOR_YCrCb2BGR)
+            target = cv2.cvtColor(target, cv2.COLOR_YCrCb2BGR)
 
             psnr_val_rgb.append(utils.PSNR(target, restored))
             ssim_val_rgb.append(ssim(target, restored, multichannel=True))
